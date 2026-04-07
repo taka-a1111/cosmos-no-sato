@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホームページ開設のお知らせ | コスモスの里</title>
+<meta name="description" content="グループホーム コスモスの里のホームページを開設いたしました。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FFF9F0;
+  --warm-white: #FFFDFB;
+  --beige: #F5E6D3;
+  --beige-light: #FAF0E6;
+  --orange: #E07A3A;
+  --orange-light: #EE9A65;
+  --green: #5E9B50;
+  --green-dark: #3D6E33;
+  --green-pale: #EEF6EB;
+  --brown: #8B6F47;
+  --text-dark: #3D3327;
+  --text-mid: #6B5E52;
+  --text-light: #9B8E82;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text-dark);
+  background: var(--warm-white);
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(255,253,251,.96);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 2px 20px rgba(0,0,0,.06);
+}
+.site-logo {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--text-dark); text-decoration: none;
+}
+.header-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 24px; border-radius: 50px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 13px; font-weight: 700;
+  text-decoration: none; color: #fff;
+  background: var(--orange);
+  box-shadow: 0 4px 16px rgba(224,122,58,.35);
+  transition: all .3s;
+}
+.header-cta:hover { transform: translateY(-1px); }
+.header-cta svg { width: 16px; height: 16px; stroke: white; }
+
+/* ===== PAGE HERO ===== */
+.page-hero {
+  padding: 140px 24px 60px;
+  background: linear-gradient(160deg, var(--green-pale) 0%, var(--cream) 100%);
+  text-align: center;
+}
+.breadcrumb {
+  font-size: 12px; color: var(--text-light);
+  margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.breadcrumb a { color: var(--green); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span { color: var(--text-light); }
+.page-meta {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; margin-bottom: 16px;
+}
+.page-date {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 13px; color: var(--green); font-weight: 700;
+}
+.page-tag {
+  font-size: 11px; background: var(--green);
+  color: #fff; padding: 3px 14px; border-radius: 20px; font-weight: 700;
+}
+.page-title {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700; color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* ===== ARTICLE ===== */
+.article-wrap {
+  max-width: 720px; margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+.article-body {
+  background: #fff;
+  border-radius: 20px;
+  padding: 48px 52px;
+  box-shadow: 0 4px 32px rgba(139,111,71,.08);
+  margin-bottom: 40px;
+}
+@media (max-width: 600px) {
+  .article-body { padding: 32px 24px; }
+}
+.article-body p {
+  font-size: 15px;
+  line-height: 2.1;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+}
+.article-body p:last-child { margin-bottom: 0; }
+.article-divider {
+  border: none;
+  border-top: 1px solid var(--beige);
+  margin: 32px 0;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; border-radius: 50px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none; color: var(--green-dark);
+  border: 2px solid var(--green);
+  transition: all .3s;
+}
+.back-btn:hover {
+  background: var(--green);
+  color: #fff;
+}
+.back-btn svg { width: 16px; height: 16px; stroke: currentColor; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--text-dark);
+  padding: 40px 24px 28px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 18px; font-weight: 700; color: white; margin-bottom: 8px;
+}
+.footer-address { font-size: 13px; color: rgba(255,255,255,.45); margin-bottom: 20px; }
+.footer-copy {
+  font-size: 11px; color: rgba(255,255,255,.3);
+  padding-top: 20px; border-top: 1px solid rgba(255,255,255,.08);
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="./index.html" class="site-logo">コスモスの里</a>
+  <a href="./index.html#contact" class="header-cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.01L6.6 10.8z"/>
+    </svg>
+    お問い合わせ
+  </a>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="./index.html">ホーム</a>
+    <span>›</span>
+    <a href="./index.html#news">お知らせ</a>
+    <span>›</span>
+    <span>ホームページ開設のお知らせ</span>
+  </div>
+  <div class="page-meta">
+    <span class="page-date">2026.04.07</span>
+    <span class="page-tag">お知らせ</span>
+  </div>
+  <h1 class="page-title">ホームページ開設のお知らせ</h1>
+</div>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+  <div class="article-body">
+    <p>平素より当施設をご利用いただき、誠にありがとうございます。</p>
+    <p>この度、当施設のホームページを開設いたしました。<br>施設の特徴やサービス内容など、より分かりやすくご案内できるよう努めてまいります。</p>
+    <hr class="article-divider">
+    <p>今後とも変わらぬご愛顧のほど、よろしくお願い申し上げます。</p>
+  </div>
+
+  <a href="./index.html#news" class="back-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 5l-7 7 7 7"/>
+    </svg>
+    お知らせ一覧へ戻る
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">グループホーム コスモスの里</div>
+  <div class="footer-address">〒720-1146 広島県福山市駅家町大橋4-1<br>TEL：084-977-0633 ／ FAX：084-977-0630</div>
+  <div class="footer-copy">© 2026 有限会社愛友会 コスモスの里 All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
