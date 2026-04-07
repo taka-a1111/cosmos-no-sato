@@ -30,6 +30,7 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--text-dark);background:var
 .hero-facility{font-family:'Shippori Mincho',serif;font-size:clamp(20px,4vw,32px);color:#fff;font-weight:700;letter-spacing:.08em;margin-bottom:12px;text-shadow:0 2px 16px rgba(0,0,0,.2)}
 .hero-tagline{font-family:'Zen Maru Gothic',sans-serif;font-size:clamp(13px,2vw,16px);color:rgba(255,255,255,.8);margin-bottom:48px;letter-spacing:.04em}
 .hero-cta-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary svg{width:18px;height:18px;stroke:white;flex-shrink:0}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;padding:18px 40px;border-radius:50px;font-family:'Zen Maru Gothic',sans-serif;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.03em;box-shadow:0 8px 28px rgba(224,122,58,.4);transition:all .35s}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(224,122,58,.5)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,.35);color:#fff;padding:17px 36px;border-radius:50px;font-family:'Zen Maru Gothic',sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:all .35s;letter-spacing:.03em}
@@ -142,7 +143,7 @@ section{padding:100px 24px}
 @media(max-width:520px){.contact-cards{grid-template-columns:1fr}}
 .contact-card{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-radius:var(--radius);padding:32px 24px;text-decoration:none;color:var(--text-dark);transition:all .35s;box-shadow:var(--shadow-card)}
 .contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-heavy)}
-.contact-card .c-icon{font-size:28px;margin-bottom:12px}
+.contact-card .c-icon{font-size:28px;margin-bottom:12px;display:flex;align-items:center;justify-content:center}.contact-card .c-icon svg{width:36px;height:36px;stroke:var(--orange)}.contact-card.fax .c-icon svg{stroke:var(--text-mid)}
 .contact-card .c-label{font-family:'Zen Maru Gothic',sans-serif;font-size:12px;font-weight:700;color:var(--text-light);letter-spacing:1px;margin-bottom:6px}
 .contact-card .c-value{font-family:'Zen Maru Gothic',sans-serif;font-size:22px;font-weight:700;color:var(--orange)}
 .contact-card.fax .c-value{font-size:18px;color:var(--text-mid)}
@@ -160,13 +161,30 @@ footer{background:#1a1610;padding:40px 24px 28px;text-align:center}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
+
+/* ===== NEWS MODAL ===== */
+.news-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.news-modal-overlay.active{display:flex}
+.news-modal{background:#fff;border-radius:20px;max-width:560px;width:100%;padding:44px 40px;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.22);animation:modalIn .35s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-light);line-height:1;padding:6px 10px;border-radius:50%;transition:.2s}
+.modal-close:hover{background:var(--beige-light);color:var(--text-dark)}
+.modal-meta{display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.modal-date{font-family:'Zen Maru Gothic',sans-serif;font-size:13px;color:var(--green);font-weight:700}
+.modal-badge{font-size:11px;background:var(--green-pale);color:var(--green-dark);padding:3px 12px;border-radius:20px;font-weight:700}
+.news-modal h2{font-family:'Zen Maru Gothic',sans-serif;font-size:19px;font-weight:700;margin-bottom:22px;color:var(--text-dark);line-height:1.55;padding-bottom:18px;border-bottom:2px solid var(--beige)}
+.modal-body p{font-size:14.5px;line-height:2;color:var(--text-mid);margin-bottom:14px}
+.modal-body p:last-child{margin-bottom:0}
+.news-link{color:inherit;text-decoration:none;display:flex;align-items:baseline;gap:8px;cursor:pointer;width:100%}
+.news-link:hover .news-text{color:var(--green-dark);text-decoration:underline;text-underline-offset:3px}
+.news-link .news-text::after{content:" ›";font-size:12px;color:var(--green);font-weight:700}
 </style>
 </head>
 <body>
 <div class="mockup-badge">DESIGN MOCKUP ─ インフォサクセス</div>
 <header class="site-header" id="siteHeader">
   <a href="#" class="site-logo">コスモスの里</a>
-  <a href="#contact" class="header-cta"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1.11 3.4 2 2 0 0 1 3.09 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.2a16 16 0 0 0 6 6l1.12-.45a2 2 0 0 1 2.11.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg> お問い合わせ</a>
+  <a href="#contact" class="header-cta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.01L6.6 10.8z"/></svg> お問い合わせ</a>
 </header>
 
 <section class="hero">
@@ -178,7 +196,7 @@ footer{background:#1a1610;padding:40px 24px 28px;text-align:center}
     <div class="hero-facility">コスモスの里</div>
     <p class="hero-tagline">少人数で家庭的な暮らしを大切にしています</p>
     <div class="hero-cta-group">
-      <a href="#contact" class="btn-primary">📞 お問い合わせ</a>
+      <a href="#contact" class="btn-primary"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.01L6.6 10.8z"/></svg> お問い合わせ</a>
       <a href="#features" class="btn-secondary">▼ 施設について</a>
     </div>
   </div>
@@ -197,7 +215,7 @@ footer{background:#1a1610;padding:40px 24px 28px;text-align:center}
   <div class="section-inner">
     <div class="section-header reveal"><div class="section-label">NEWS</div><h2 class="section-title">お知らせ</h2></div>
     <div class="news-list reveal">
-      <div class="news-item"><span class="news-date">2026.04.07</span><span class="news-tag">お知らせ</span><span class="news-text">ホームページ開設のお知らせ</span></div>
+      <div class="news-item"><a class="news-link" onclick="document.getElementById('newsModal').classList.add('active')"><span class="news-date">2026.04.07</span><span class="news-tag">お知らせ</span><span class="news-text">ホームページ開設のお知らせ</span></a></div>
       <div class="news-item"><span class="news-date">2026.03.01</span><span class="news-tag">お知らせ</span><span class="news-text">ホームページをリニューアルしました。</span></div>
       <div class="news-item"><span class="news-date">2026.02.15</span><span class="news-tag">行事</span><span class="news-text">コスモス通信3月号を発行しました。</span></div>
       <div class="news-item"><span class="news-date">2026.01.20</span><span class="news-tag">お知らせ</span><span class="news-text">ご入居のご相談を随時受け付けております。</span></div>
@@ -264,10 +282,10 @@ footer{background:#1a1610;padding:40px 24px 28px;text-align:center}
   <div class="section-inner">
     <div class="section-header reveal"><div class="section-label">FLOW</div><h2 class="section-title">ご利用までの流れ</h2></div>
     <div class="steps">
-      <div class="step reveal reveal-delay-1"><div class="step-num">1</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>ご見学・ご相談</h3><p>いつでもお気軽にお申し出ください。施設のご案内をさせていただきます。</p></div>
-      <div class="step reveal reveal-delay-2"><div class="step-num">2</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>面談</h3><p>ご契約内容についてご説明させていただきます。どんなことでもお聞きください。</p></div>
-      <div class="step reveal reveal-delay-3"><div class="step-num">3</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div><h3>ご契約</h3><p>大切な諸事項や運営の規定をご説明いたします。契約書のご提出により契約成立となります。</p></div>
-      <div class="step reveal"><div class="step-num">4</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2a4 4 0 0 1 4 4 4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1-4-4 4 4 0 0 1 4-4 4 4 0 0 1 4-4z"/></svg></div><h3>ご入居</h3><p>家具や衣類などをご準備いただき、新生活のスタートです。スタッフ一同お待ちしております。</p></div>
+      <div class="step reveal reveal-delay-1"><div class="step-num">1</div><div class="step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div><h3>ご見学・ご相談</h3><p>いつでもお気軽にお申し出ください。施設のご案内をさせていただきます。</p></div>
+      <div class="step reveal reveal-delay-2"><div class="step-num">2</div><div class="step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-1.414-.586M7 8h2M5 4h9a2 2 0 012 2v6a2 2 0 01-2 2H9l-4 4V6a2 2 0 012-2z"/></svg></div><h3>面談</h3><p>ご契約内容についてご説明させていただきます。どんなことでもお聞きください。</p></div>
+      <div class="step reveal reveal-delay-3"><div class="step-num">3</div><div class="step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><h3>ご契約</h3><p>大切な諸事項や運営の規定をご説明いたします。契約書のご提出により契約成立となります。</p></div>
+      <div class="step reveal"><div class="step-num">4</div><div class="step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg></div><h3>ご入居</h3><p>家具や衣類などをご準備いただき、新生活のスタートです。スタッフ一同お待ちしております。</p></div>
     </div>
   </div>
 </section>
@@ -302,8 +320,8 @@ footer{background:#1a1610;padding:40px 24px 28px;text-align:center}
   <div class="contact-inner">
     <div class="section-header reveal"><div class="section-label">CONTACT</div><h2 class="section-title" style="color:#fff;">お問い合わせ</h2><p class="section-desc" style="color:rgba(255,255,255,.8);">入居に関するご相談・施設見学のお申し込みなど、<br>お気軽にお問い合わせください。</p></div>
     <div class="contact-cards reveal">
-      <a href="tel:084-977-0633" class="contact-card"><div class="c-icon">📞</div><div class="c-label">お電話でのお問い合わせ</div><div class="c-value">084-977-0633</div><div class="c-note">有限会社愛友会</div></a>
-      <a class="contact-card fax" style="cursor:default;"><div class="c-icon">📠</div><div class="c-label">FAXでのお問い合わせ</div><div class="c-value">084-977-0630</div><div class="c-note">24時間受付</div></a>
+      <a href="tel:084-977-0633" class="contact-card"><div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.01L6.6 10.8z"/></svg></div><div class="c-label">お電話でのお問い合わせ</div><div class="c-value">084-977-0633</div><div class="c-note">有限会社愛友会</div></a>
+      <a class="contact-card fax" style="cursor:default;"><div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/><line x1="6" y1="11" x2="6" y2="11"/><line x1="10" y1="11" x2="14" y2="11"/><line x1="10" y1="15" x2="14" y2="15"/></svg></div><div class="c-label">FAXでのお問い合わせ</div><div class="c-value">084-977-0630</div><div class="c-note">24時間受付</div></a>
     </div>
   </div>
 </section>
@@ -313,12 +331,29 @@ footer{background:#1a1610;padding:40px 24px 28px;text-align:center}
   <div class="footer-address">〒720-1146 広島県福山市駅家町大橋4-1<br>TEL：084-977-0633 ／ FAX：084-977-0630</div>
   <div class="footer-copy">© 2026 有限会社愛友会 コスモスの里 All Rights Reserved.</div>
 </footer>
-<a href="#contact" class="float-cta"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1.11 3.4 2 2 0 0 1 3.09 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.2a16 16 0 0 0 6 6l1.12-.45a2 2 0 0 1 2.11.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg></a>
+<a href="#contact" class="float-cta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.01L6.6 10.8z"/></svg></a>
 <script>
 const h=document.getElementById('siteHeader');
 window.addEventListener('scroll',()=>{h.classList.toggle('scrolled',window.scrollY>60)});
 const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>o.observe(el));
 </script>
+
+<!-- ===== NEWS MODAL ===== -->
+<div id="newsModal" class="news-modal-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="news-modal">
+    <button class="modal-close" onclick="document.getElementById('newsModal').classList.remove('active')" aria-label="閉じる">✕</button>
+    <div class="modal-meta">
+      <span class="modal-date">2026.04.07</span>
+      <span class="modal-badge">お知らせ</span>
+    </div>
+    <h2>ホームページ開設のお知らせ</h2>
+    <div class="modal-body">
+      <p>平素より当施設をご利用いただき、誠にありがとうございます。</p>
+      <p>この度、当施設のホームページを開設いたしました。<br>施設の特徴やサービス内容など、より分かりやすくご案内できるよう努めてまいります。</p>
+      <p>今後とも変わらぬご愛顧のほど、よろしくお願い申し上げます。</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
